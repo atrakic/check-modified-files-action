@@ -31,7 +31,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.event_name != 'pull_request'
+    if: false # disabled --  github.event_name != 'pull_request'
     defaults:
       run:
         shell: bash
