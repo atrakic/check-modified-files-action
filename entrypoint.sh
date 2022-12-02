@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
+# env
 #set -x
 
 # Workarround for github envs
 [[ -n "${GITHUB_ACTIONS}" ]] && git config --global --add safe.directory /github/workspace 
 
-paths_arr=( "$@" )
+paths_arr=( "${INPUT_DIRECTORIES:-$@}" )
 printf "\n========== List modified files: ( %s ) ==========\n" "${paths_arr[*]}"
 git diff --name-only HEAD^ HEAD
 

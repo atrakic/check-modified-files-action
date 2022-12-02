@@ -10,6 +10,9 @@ outputs:
     description: 'True or false if files has been changed'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
-  args:
-   - ${{ inputs.directories }}
+  #image: 'Dockerfile'
+  #args:
+  # - ${{ inputs.directories }}
+  image: docker://ghcr.io/atrakic/check-modified-files-action:main
+  env:
+    INPUT_DIRECTORIES: ${{ inputs.directories }}
