@@ -12,7 +12,7 @@ do
   if [ -f "$path" ] || [ -d "$path" ]; then
       echo "$path - found"
   else
-      echo "$path - does not found - exiting with failure"
+      echo "$path - not found - exiting with failure"
       exit 1
   fi
 done

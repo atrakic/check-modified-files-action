@@ -6,8 +6,6 @@ on:
   push:
     branches:
       - '*'
-    paths-ignore:
-      - '**/README.md'
 
 jobs:
   ci:
@@ -17,9 +15,9 @@ jobs:
         with:
           fetch-depth: 2      
       - uses: ./
-        name: "Check container builds"
+        name: "Check modified files"
         with:
-          directories: "/" #"examples/"
+          directories: "examples/ .github/workflows/ entrypoint.sh action.yml README.md Dockefile"
       - name: Dump github context
         run: echo "$GITHUB_CONTEXT"
         if: github.ref != 'refs/heads/main'
