@@ -6,7 +6,7 @@
 
 ### `directories`
 
-**Required** The string with listing of directories and files to walk through. Eg. `"src/backend/ commons/ .github/actions/backend.yml Dockefile"`.
+**Required** The string with directories and files to check. Eg. `"src/backend/ commons/ .github/actions/backend.yml Dockefile"`.
 
 ## Outputs
 

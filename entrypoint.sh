@@ -1,21 +1,10 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
-set -x
+#set -x
 
 paths_arr=( "$@" )
 printf "\n========== List modified files: ( ${paths_arr[*]} ) ==========\n"
 echo "$(git diff --name-only HEAD^ HEAD)"
-
-printf "\n========== List paths to match and check existence ==========\n"
-for path in ${paths_arr[*]}
-do
-  if [ -f "$path" ] || [ -d "$path" ]; then
-      echo "$path - found"
-  else
-      echo "$path - not found - exiting with failure"
-      exit 1
-  fi
-done
 
 printf "\n========== Check paths of modified files ==========\n"
 git diff --name-only HEAD^ HEAD > files.txt
@@ -40,7 +29,9 @@ rm -rf files.txt
 
 printf "\n========== Result ==========\n"
 if [[ $matched = true ]]; then
+  echo "match found"
   echo "matched=true" >> $GITHUB_OUTPUT
 else
+  echo "no match found"
   echo "matched=false" >> $GITHUB_OUTPUT
 fi

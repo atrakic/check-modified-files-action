@@ -2,7 +2,7 @@ name: 'Check modified files in directories'
 description: "Check if there are modified files on a given directories."
 inputs:
   directories:
-    description: "The string with directories to walk through"
+    description: "The string with directories and files to check"
     required: true
     default: "config/ infra/ docs/" # example
 outputs:

@@ -17,7 +17,7 @@ jobs:
       - uses: ./
         name: "Check modified files"
         with:
-          directories: "examples/ .github/workflows/ entrypoint.sh action.yml README.md Dockefile"
+          directories: ".github/workflows/ entrypoint.sh action.yml README.md Dockefile"
       - name: Dump github context
         run: echo "$GITHUB_CONTEXT"
         if: github.ref != 'refs/heads/main'
