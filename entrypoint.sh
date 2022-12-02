@@ -3,7 +3,7 @@
 set -x
 
 paths_arr=( "$@" )
-printf "\n========== List modified files ==========\n"
+printf "\n========== List modified files: ( ${paths_arr[*]} ) ==========\n"
 echo "$(git diff --name-only HEAD^ HEAD)"
 
 printf "\n========== List paths to match and check existence ==========\n"
