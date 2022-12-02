@@ -7,6 +7,7 @@ printf "\n========== List modified files: ( ${paths_arr[*]} ) ==========\n"
 echo "$(git diff --name-only HEAD^ HEAD)"
 
 printf "\n========== Check paths of modified files ==========\n"
+git rev-parse HEAD
 git diff --name-only HEAD^ HEAD > files.txt
 matched=false
 while IFS= read -r file
