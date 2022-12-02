@@ -27,18 +27,17 @@ True or false if some of files from input directories has been changed.
   id: modified_files
   uses: atrakic/check-modified-files-action@main
   with:
-    directories: "foo/setup.sh src/ common/ Dockerfile"
+    directories: "src/backend/ common/ Dockerfile.backend"
 
 - name: Set up Docker Buildx
   if: steps.modified_files.outputs.matched == 'true'
-  uses: docker/setup-buildx-action@v1
+  uses: docker/setup-buildx-action@v2
 
 - name: Build
-  uses: docker/build-push-action@v2
+  uses: docker/build-push-action@v3
   if: steps.modified_files.outputs.matched == 'true'
   with:
     context: .
     push: true
     tags: foo/bar:latest
-
 ```
