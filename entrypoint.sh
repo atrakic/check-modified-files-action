@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+set -x
+
 paths_arr=( "$@" )
 printf "\n========== List modified files ==========\n"
 echo "$(git diff --name-only HEAD^ HEAD)"
