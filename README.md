@@ -1,16 +1,19 @@
 # check-modified-files-action
 
+[![ci](https://github.com/atrakic/check-modified-files-action/actions/workflows/ci.yaml/badge.svg)](https://github.com/atrakic/check-modified-files-action/actions/workflows/ci.yaml)
+[![release](https://github.com/atrakic/check-modified-files-action/actions/workflows/release.yaml/badge.svg)](https://github.com/atrakic/check-modified-files-action/actions/workflows/release.yaml)
+
 ## Inputs
 
-### `who-to-greet`
+### `directories`
 
-**Required** The name of the person to greet. Default `"World"`.
+**Required** The string with listing of directories and files to walk through. Eg. `"src/backend/ commons/ .github/actions/backend.yml Dockefile"`.
 
 ## Outputs
 
-### `time`
+### `matched`
 
-The time we greeted you.
+True or false if some of files from input directories has been changed.
 
 
 ### Example workflow
