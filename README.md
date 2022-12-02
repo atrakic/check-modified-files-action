@@ -1,13 +1,12 @@
 # check-modified-files-action
 
 [![ci](https://github.com/atrakic/check-modified-files-action/actions/workflows/ci.yml/badge.svg)](https://github.com/atrakic/check-modified-files-action/actions/workflows/ci.yml)
-[![release](https://github.com/atrakic/check-modified-files-action/actions/workflows/release.yaml/badge.svg)](https://github.com/atrakic/check-modified-files-action/actions/workflows/release.yaml)
 
 ## Inputs
 
 ### `directories`
 
-**Required** The string with listing of directories and files to walk through. Eg. `"src/backend/ commons/ .github/actions/backend.yml Dockefile"`.
+**Required** The string with directories and files to check. Eg. `"src/backend/ commons/ .github/actions/backend.yml Dockefile"`.
 
 ## Outputs
 
@@ -19,6 +18,11 @@ True or false if some of files from input directories has been changed.
 ### Example workflow
 
 ```yaml
+- name: Check out code
+  uses: actions/checkout@v3
+  with:
+    fetch-depth: 2
+
 - name: Check modified files
   id: modified_files
   uses: atrakic/check-modified-files-action@main

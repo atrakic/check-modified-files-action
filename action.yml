@@ -2,14 +2,17 @@ name: 'Check modified files in directories'
 description: "Check if there are modified files on a given directories."
 inputs:
   directories:
-    description: "The string with directories to walk through"
+    description: "The string with directories and files to check"
     required: true
-    default: "config/ infra/ docs/" # example
+    default: ".github/workflows/ entrypoint.sh action.yml README.md Dockefile"
 outputs:
   matched: # id of the output
     description: 'True or false if files has been changed'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
-  args:
-   - ${{ inputs.directories }}
+  #image: 'Dockerfile'
+  #args:
+  # - ${{ inputs.directories }}
+  image: docker://ghcr.io/atrakic/check-modified-files-action:main
+  env:
+    INPUT_DIRECTORIES: ${{ inputs.directories }}
