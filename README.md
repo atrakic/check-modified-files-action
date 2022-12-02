@@ -1,7 +1,6 @@
 # check-modified-files-action
 
 [![ci](https://github.com/atrakic/check-modified-files-action/actions/workflows/ci.yml/badge.svg)](https://github.com/atrakic/check-modified-files-action/actions/workflows/ci.yml)
-[![release](https://github.com/atrakic/check-modified-files-action/actions/workflows/release.yaml/badge.svg)](https://github.com/atrakic/check-modified-files-action/actions/workflows/release.yaml)
 
 ## Inputs
 
