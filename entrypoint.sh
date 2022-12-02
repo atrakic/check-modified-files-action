@@ -2,12 +2,14 @@
 
 #set -x
 
+# Workarround for github envs
+[[ -n "${GITHUB_ACTIONS}" ]] && git config --global --add safe.directory /github/workspace 
+
 paths_arr=( "$@" )
 printf "\n========== List modified files: ( %s ) ==========\n" "${paths_arr[*]}"
 git diff --name-only HEAD^ HEAD
 
 printf "\n========== Check paths of modified files ==========\n"
-[[ -n "${GITHUB_ACTIONS}" ]] && git config --global --add safe.directory /github/workspace 
 git rev-parse HEAD
 git diff --name-only HEAD^ HEAD > files.txt
 matched=false
