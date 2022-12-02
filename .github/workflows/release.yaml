@@ -14,8 +14,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - '.github/workflows/release.yaml'
     tags:
       - 'v*.*.*'
 
@@ -72,4 +70,3 @@ jobs:
         run: |
           docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
           docker image ls ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
-

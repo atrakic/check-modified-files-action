@@ -1,10 +1,11 @@
 name: 'Check modified files in directories'
 description: "Check if there are modified files on a given directories."
+author: 'Admir Trakic'
 inputs:
   directories:
-    description: "The string with directories and files to check"
+    description: "The string with directories and/or files to check"
     required: true
-    default: ".github/workflows/ entrypoint.sh action.yml README.md Dockefile"
+    default: ".github/workflows/ README.md Dockefile"
 outputs:
   matched: # id of the output
     description: 'True or false if files has been changed'

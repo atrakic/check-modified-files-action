@@ -2,6 +2,13 @@
 
 [![ci](https://github.com/atrakic/check-modified-files-action/actions/workflows/ci.yml/badge.svg)](https://github.com/atrakic/check-modified-files-action/actions/workflows/ci.yml)
 
+This Github Action validates if changes occured between two commits for the given paths and/or files on the filesystem.
+
+## Usage
+
+See [action.yml](action.yml)
+
+
 ## Inputs
 
 ### `directories`
@@ -41,3 +48,8 @@ True or false if some of files from input directories has been changed.
     push: true
     tags: foo/bar:latest
 ```
+
+
+## License
+
+The scripts and documentation in this project are released under the [Apache License](LICENSE)
