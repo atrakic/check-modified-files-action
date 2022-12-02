@@ -14,12 +14,15 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 2      
+      
       - uses: ./
+        id: modified_files
         name: "Check modified files"
         with:
           directories: ".github/workflows/ entrypoint.sh action.yml README.md Dockefile"
+      
       - name: Dump github context
         run: echo "$GITHUB_CONTEXT"
-        if: github.ref != 'refs/heads/main'
+        if: steps.modified_files.outputs.matched == 'true'
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
